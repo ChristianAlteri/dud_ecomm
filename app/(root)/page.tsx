@@ -3,8 +3,13 @@ import { UserButton } from "@clerk/nextjs";
 import { clerkClient } from "@clerk/nextjs";
 
 
-// const user = clerkClient.users.getUserList()
-// console.log(user)
+
+const sessions = clerkClient.users.getUserList();
+const user1email = sessions.then((res) => {
+  // console.log('user1email', user1email);
+  const email = res.map((user) => user.emailAddresses)
+  console.log(email)
+})
 
 
 
